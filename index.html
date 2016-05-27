@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="lib/video-js.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 -->
+  <script src="lib/videojs-ie8.min.js"></script>
+
+  <style>
+
+  html{
+    
+    background: url(background.png) no-repeat;
+    background-size:cover;
+
+  }
+
+.video-js {
+  margin-left:300px;
+  height:800px;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #112E33;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    
+}
+
+/* The Close Button */
+.closeUNM, .closeNMState, .closeCon, .closeSFCC, .closeENM{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeUNM:onhover,.closeNMState:hover,.closeUNM:focus,.closeNMState:focus,.closeCon:focus,.closeSFCC:focus,.closeENM:focus,.closeCon:hover,.closeSFCC:hover,.closeENM:hover,{
+    color: yellow;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Open Modal</button> -->
+<div id="conImage" style="margin-left: 200px; margin-top: 300px;">
+  <input type="image" style="width: 200px;" src="newConst.png"  id="btnImgCON">
+
+</div>
+
+<div id="sfccImage" style="margin-left: 500px; margin-top: -200px;">
+  <input type="image" style="width: 200px;" src="sfcc.png"  id="btnImgSFCC">
+
+</div>
+
+<div id="unmImage" style="margin-left: 450px; margin-top: 50px;">
+  <input type="image" style="width: 100px;" src="unmImage.png"  id="btnImgUNM">
+
+</div>
+
+<div id="nmsImage" style="margin-left: 300px; margin-top: 200px;">
+  <input type="image" src="nmstate.png" style="width: 100px;" id="btnImgNMSTATE">
+
+</div>
+
+<div id="enmImage" style="margin-left: 800px; position:relative; margin-top:-200px;">
+  <input type="image" src="enmu.png" style="width: 100px;" id="btnImgENM">
+
+</div>
+
+<!-- SFCC Modal -->
+<div id="SFCC_Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="closeSFCC">X</span>
+    <video id="SFCCvideo" class="video-js" controls preload="auto" width="1240" height="800"poster="cover_img.png" data-setup="{}">
+      <source src="video/MY_VIDEO.mp4" type='video/mp4'>
+      <source src="video/MY_VIDEO.webm" type='video/webm'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+
+</div>
+
+
+<!-- UNM Modal -->
+<div id="UMN_Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="closeUNM">X</span>
+    <video id="UNMvideo" class="video-js" controls preload="auto" width="1240" height="464"poster="cover_img.png" data-setup="{}">
+      <source src="video/MY_VIDEO.mp4" type='video/mp4'>
+      <source src="video/MY_VIDEO.webm" type='video/webm'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+
+</div>
+
+<!-- NMState Modal -->
+
+<div id="NMState_Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="closeNMState">X</span>
+    <video id="NMStatevideo" class="video-js" controls preload="auto" width="1240" height="464"poster="cover_img.png" data-setup="{}">
+      <source src="video/MY_VIDEO.mp4" type='video/mp4'>
+      <source src="video/MY_VIDEO.webm" type='video/webm'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+
+</div>
+
+<!-- ENM Modal -->
+
+<div id="ENM_Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="closeENM">X</span>
+    <video id="ENMvideo" class="video-js" controls preload="auto" width="1240" height="464"poster="cover_img.png" data-setup="{}">
+      <source src="video/MY_VIDEO.mp4" type='video/mp4'>
+      <source src="video/MY_VIDEO.webm" type='video/webm'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+
+</div>
+
+<!-- Con Modal -->
+
+<div id="Con_Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="closeCon">X</span>
+    <video id="Convideo" class="video-js" controls preload="auto" width="1240" height="464"poster="cover_img.png" data-setup="{}">
+      <source src="video/MY_VIDEO.mp4" type='video/mp4'>
+      <source src="video/MY_VIDEO.webm" type='video/webm'>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+
+</div>
+  
+
+  <script src="lib/video.js"></script>
+<script>
+
+
+// UNM VIDEO JS
+document.getElementById("btnImgUNM").onclick = function() {
+  // Get the modal
+  var modal = document.getElementById('UMN_Modal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("unmImage");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closeUNM")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      var myPlayer = videojs('UNMvideo');
+      
+          myPlayer.currentTime(0);
+          myPlayer.pause();
+          myPlayer.hasStarted(false);
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          var myPlayer = videojs('UNMvideo');
+      
+          myPlayer.currentTime(0);
+          myPlayer.pause();
+          myPlayer.hasStarted(false);
+      }
+  }
+
+}
+
+
+// NMSTATE VIDEO JS
+document.getElementById("btnImgNMSTATE").onclick = function() {
+  // Get the modal
+  var modal = document.getElementById('NMState_Modal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("nmsImage");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closeNMState")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      var myPlayer = videojs('NMStatevideo');
+      
+      myPlayer.currentTime(0);
+      myPlayer.pause();
+      myPlayer.hasStarted(false);
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          //stop video when modal closed
+          var myPlayer = videojs('NMStatevideo');
+      
+          myPlayer.currentTime(0);
+          myPlayer.pause();
+          myPlayer.hasStarted(false);
+          
+          
+      }
+  }
+
+}
+
+// ENM VIDEO JS
+document.getElementById("btnImgENM").onclick = function() {
+  // Get the modal
+  var modal = document.getElementById('ENM_Modal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("enmImage");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closeENM")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      var myPlayer = videojs('ENMvideo');
+      
+      myPlayer.currentTime(0);
+      myPlayer.pause();
+      myPlayer.hasStarted(false);
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          //stop video when modal closed
+          var myPlayer = videojs('ENMvideo');
+      
+          myPlayer.currentTime(0);
+          myPlayer.pause();
+          myPlayer.hasStarted(false);
+          
+          
+      }
+  }
+
+}
+
+
+// CONSORTIUM VIDEO JS
+document.getElementById("btnImgCON").onclick = function() {
+  // Get the modal
+  var modal = document.getElementById('Con_Modal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("conImage");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closeCon")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      var myPlayer = videojs('Convideo');
+      
+      myPlayer.currentTime(0);
+      myPlayer.pause();
+      myPlayer.hasStarted(false);
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          //stop video when modal closed
+          var myPlayer = videojs('Convideo');
+      
+          myPlayer.currentTime(0);
+          myPlayer.pause();
+          myPlayer.hasStarted(false);
+          
+          
+      }
+  }
+
+}
+
+// SFCC VIDEO JS
+document.getElementById("btnImgSFCC").onclick = function() {
+  // Get the modal
+  var modal = document.getElementById('SFCC_Modal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("sfccImage");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("closeSFCC")[0];
+
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      var myPlayer = videojs('SFCCvideo');
+      
+      myPlayer.currentTime(0);
+      myPlayer.pause();
+      myPlayer.hasStarted(false);
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          //stop video when modal closed
+          var myPlayer = videojs('SFCCvideo');
+      
+          myPlayer.currentTime(0);
+          myPlayer.pause();
+          myPlayer.hasStarted(false);
+          
+          
+      }
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
