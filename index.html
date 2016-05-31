@@ -88,7 +88,7 @@
 </div>
 
 <!-- SFCC Modal -->
-<div id="SFCC_Modal" class="modal">
+<div id="SFCC_Modal" class="modal" >
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -186,6 +186,7 @@
 <script>
 
 
+
 // UNM VIDEO JS
 document.getElementById("btnImgUNM").onclick = function() {
   // Get the modal
@@ -193,6 +194,9 @@ document.getElementById("btnImgUNM").onclick = function() {
 
   // Get the button that opens the modal
   var btn = document.getElementById("unmImage");
+
+  var myPlayer = videojs('UNMvideo');
+  myPlayer.play();
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("closeUNM")[0];
@@ -234,6 +238,9 @@ document.getElementById("btnImgNMSTATE").onclick = function() {
 
   // Get the button that opens the modal
   var btn = document.getElementById("nmsImage");
+
+  var myPlayer = videojs('NMStatevideo');
+  myPlayer.play();
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("closeNMState")[0];
@@ -277,6 +284,9 @@ document.getElementById("btnImgENM").onclick = function() {
 
   // Get the button that opens the modal
   var btn = document.getElementById("enmImage");
+
+  var myPlayer = videojs('ENMvideo');
+  myPlayer.play();
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("closeENM")[0];
@@ -322,6 +332,9 @@ document.getElementById("btnImgCON").onclick = function() {
   // Get the button that opens the modal
   var btn = document.getElementById("conImage");
 
+  var myPlayer = videojs('Convideo');
+  myPlayer.play();
+
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("closeCon")[0];
 
@@ -365,6 +378,9 @@ document.getElementById("btnImgSFCC").onclick = function() {
   // Get the button that opens the modal
   var btn = document.getElementById("sfccImage");
 
+  var myPlayer = videojs('SFCCvideo');
+  myPlayer.play();
+
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("closeSFCC")[0];
 
@@ -398,7 +414,38 @@ document.getElementById("btnImgSFCC").onclick = function() {
       }
   }
 
+
+
 }
+
+
+//RELOAD PAGE AFTER 3 mins of Inactivity.
+var IDLE_TIMEOUT = 180; //seconds
+var _idleSecondsCounter = 0;
+document.onclick = function() {
+  _idleSecondsCounter = 0;
+};
+document.onmousemove = function() {
+  _idleSecondsCounter = 0;
+};
+document.onkeypress = function() {
+  _idleSecondsCounter = 0;
+};
+
+var myInterval = window.setInterval(CheckIdleTime, 1000);
+
+function CheckIdleTime() {
+  _idleSecondsCounter++;
+  
+  if (_idleSecondsCounter >= IDLE_TIMEOUT) {
+    
+    window.clearInterval(myInterval);
+    location.reload();
+    
+  }
+}
+
+
 
 
 
